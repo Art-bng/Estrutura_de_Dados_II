@@ -1,0 +1,558 @@
+## Exercício 1
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // 1. Cria o array para armazenar os 10 números
+        int[] numeros = new int[10];
+        int soma = 0;
+
+        Console.WriteLine("Digite 10 números inteiros:");
+
+        // 2. Loop para ler os números e já ir calculando a soma
+        for (int i = 0; i < 10; i++)
+        {
+            Console.Write($"Digite o {i + 1}º número: ");
+            
+            // Lê a entrada do usuário e converte para inteiro
+            numeros[i] = int.Parse(Console.ReadLine());
+            
+            // Acumula o valor na variável soma
+            soma += numeros[i];
+        }
+
+        // 3. Calcula a média
+        // Usamos (double) antes da soma para garantir que o resultado tenha casas decimais, se necessário
+        double media = (double)soma / 10;
+
+        // 4. Exibe os resultados
+        Console.WriteLine("\n--- Resultados ---");
+        
+        Console.Write("Todos os números: ");
+        for (int i = 0; i < 10; i++)
+        {
+            Console.Write(numeros[i] + " ");
+        }
+        Console.WriteLine(); // Apenas para quebrar a linha
+
+        Console.WriteLine($"Soma dos elementos: {soma}");
+        Console.WriteLine($"Média dos valores: {media}");
+    }
+}
+
+## Exercício 2 
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int[] numeros = new int[10];
+        
+        // Variáveis para guardar os valores e as posições
+        int maior = 0;
+        int menor = 0;
+        int posicaoMaior = 0;
+        int posicaoMenor = 0;
+
+        Console.WriteLine("Digite 10 números inteiros:");
+
+        for (int i = 0; i < 10; i++)
+        {
+            Console.Write($"Digite o {i + 1}º número: ");
+            numeros[i] = int.Parse(Console.ReadLine());
+
+            // O pulo do gato: se for o primeiro número digitado (índice 0), 
+            // ele é automaticamente o maior e o menor até agora!
+            if (i == 0)
+            {
+                maior = numeros[i];
+                menor = numeros[i];
+                posicaoMaior = i;
+                posicaoMenor = i;
+            }
+            else
+            {
+                // Se não for o primeiro, a gente compara com o que já temos guardado
+                
+                // Verifica se achou um número MAIOR
+                if (numeros[i] > maior)
+                {
+                    maior = numeros[i];
+                    posicaoMaior = i;
+                }
+                
+                // Verifica se achou um número MENOR
+                if (numeros[i] < menor)
+                {
+                    menor = numeros[i];
+                    posicaoMenor = i;
+                }
+            }
+        }
+
+        Console.WriteLine("\n--- Resultados ---");
+        Console.WriteLine($"Maior valor: {maior} (encontrado no índice {posicaoMaior})");
+        Console.WriteLine($"Menor valor: {menor} (encontrado no índice {posicaoMenor})");
+        
+           }
+}
+## Exercício 3 
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int[] numeros = new int[20];
+        int contadorPares = 0;
+        int somaPares = 0;
+
+        Console.WriteLine("Digite 20 números inteiros:");
+
+        // 1. Lê todos os 20 números
+        for (int i = 0; i < 20; i++)
+        {
+            Console.Write($"Digite o {i + 1}º número: ");
+            numeros[i] = int.Parse(Console.ReadLine());
+        }
+
+        Console.WriteLine("\n--- Resultados ---");
+        Console.Write("Números pares encontrados: ");
+
+        // 2. Percorre o array para encontrar, contar e somar os pares
+        for (int i = 0; i < 20; i++)
+        {
+            // Se o resto da divisão por 2 for zero, o número é par
+            if (numeros[i] % 2 == 0)
+            {
+                Console.Write(numeros[i] + " ");
+                contadorPares++;          // Conta mais um par encontrado
+                somaPares += numeros[i];  // Adiciona o valor à soma
+            }
+        }
+
+        Console.WriteLine(); // Apenas para quebrar a linha após a lista de números
+
+        // 3. Exibe a contagem e a soma
+        Console.WriteLine($"Quantidade de números pares: {contadorPares}");
+        Console.WriteLine($"Soma dos números pares: {somaPares}");
+    }
+}
+## Exercício 4 
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int[] numeros = new int[10];
+
+        Console.WriteLine("Digite 10 números:");
+
+        // 1. Lê os 10 números
+        for (int i = 0; i < 10; i++)
+        {
+            Console.Write($"Digite o {i + 1}º número: ");
+            numeros[i] = int.Parse(Console.ReadLine());
+        }
+
+        // 2. Mostra o vetor original (do índice 0 ao 9)
+        Console.WriteLine("\n--- Vetor Original ---");
+        for (int i = 0; i < 10; i++)
+        {
+            Console.Write(numeros[i] + " ");
+        }
+        Console.WriteLine(); // Quebra de linha
+
+        // 3. Mostra o vetor invertido (do índice 9 até o 0)
+        Console.WriteLine("\n--- Vetor Invertido ---");
+        for (int i = 9; i >= 0; i--)
+        {
+            Console.Write(numeros[i] + " ");
+        }
+        Console.WriteLine(); // Quebra de linha
+    }
+}
+## Exercício 5  
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Criação de uma matriz 3x3 (3 linhas e 3 colunas)
+        int[,] matriz = new int[3, 3];
+        
+        int soma = 0;
+        int maior = 0;
+
+        Console.WriteLine("Digite 9 números inteiros para preencher a matriz 3x3:");
+
+        // 1. Ler os valores, somar e descobrir o maior
+        for (int linha = 0; linha < 3; linha++)
+        {
+            for (int coluna = 0; coluna < 3; coluna++)
+            {
+                Console.Write($"Digite o valor para a posição [{linha},{coluna}]: ");
+                matriz[linha, coluna] = int.Parse(Console.ReadLine());
+
+                // Soma o valor recém-digitado
+                soma += matriz[linha, coluna];
+
+                // Lógica para descobrir o maior valor (igual ao Exercício 2)
+                if (linha == 0 && coluna == 0)
+                {
+                    maior = matriz[linha, coluna]; // O primeiro digitado é o maior até agora
+                }
+                else if (matriz[linha, coluna] > maior)
+                {
+                    maior = matriz[linha, coluna];
+                }
+            }
+        }
+
+        // 2. Mostrar a matriz no formato de "tabela"
+        Console.WriteLine("\n--- Matriz Gerada ---");
+        for (int linha = 0; linha < 3; linha++)
+        {
+            for (int coluna = 0; coluna < 3; coluna++)
+            {
+                // O \t adiciona um "Tab" (espaçamento) para deixar a matriz alinhadinha
+                Console.Write(matriz[linha, coluna] + "\t");
+            }
+            Console.WriteLine(); // Quebra a linha toda vez que terminar de imprimir as colunas de uma linha
+        }
+
+        // 3 e 4. Mostrar soma e maior valor
+        Console.WriteLine("\n--- Resultados ---");
+        Console.WriteLine($"Soma de todos os elementos: {soma}");
+        Console.WriteLine($"Maior valor encontrado: {maior}");
+    }
+}
+## Exercício 6 
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int[,] matriz = new int[4, 4];
+        int somaDiagonal = 0;
+
+        Console.WriteLine("Digite 16 números para preencher a matriz 4x4:");
+
+        // 1. Lê todos os valores da matriz
+        for (int linha = 0; linha < 4; linha++)
+        {
+            for (int coluna = 0; coluna < 4; coluna++)
+            {
+                Console.Write($"Posição [{linha},{coluna}]: ");
+                matriz[linha, coluna] = int.Parse(Console.ReadLine());
+            }
+        }
+
+        // 2. Mostra a diagonal principal e calcula a soma
+        Console.WriteLine("\nDiagonal principal:");
+        
+        // Como na diagonal principal a linha é igual a coluna, usamos apenas um 'i'
+        for (int i = 0; i < 4; i++)
+        {
+            Console.Write(matriz[i, i] + " ");
+            
+            // Acumula a soma
+            somaDiagonal += matriz[i, i];
+        }
+
+        // 3. Mostra a soma final
+        Console.WriteLine("\n\nSoma:");
+        Console.WriteLine(somaDiagonal);
+    }
+}
+## Exercício 7 
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Matriz 4x3: 4 linhas (alunos) e 3 colunas (provas)
+        double[,] notas = new double[4, 3];
+
+        Console.WriteLine("=== Sistema de Notas ===");
+
+        // 1. Entrada de dados: Lendo as notas de cada aluno
+        for (int linha = 0; linha < 4; linha++)
+        {
+            Console.WriteLine($"\nDigite as notas do Aluno {linha + 1}:");
+            
+            for (int coluna = 0; coluna < 3; coluna++)
+            {
+                Console.Write($"Nota da P{coluna + 1}: ");
+                notas[linha, coluna] = double.Parse(Console.ReadLine());
+            }
+        }
+
+        Console.WriteLine("\n=== Médias Finais ===");
+
+        // 2. Processamento e Saída: Calculando a média de cada um
+        for (int linha = 0; linha < 4; linha++)
+        {
+            double soma = 0; // A soma TEM que zerar a cada novo aluno!
+
+            for (int coluna = 0; coluna < 3; coluna++)
+            {
+                soma += notas[linha, coluna];
+            }
+
+            // Calcula a média dividindo a soma pela quantidade de provas (3)
+            double media = soma / 3;
+
+            // O ":F2" formata o número para exibir apenas 2 casas decimais
+            Console.WriteLine($"Aluno {linha + 1}: Média = {media:F2}");
+        }
+    }
+}
+
+## Exercício 8 
+using System;
+
+// 1. Definição da struct (fica fora do Main)
+struct Produto
+{
+    // Usamos 'public' para permitir que o Main acesse essas variáveis
+    public string nome;
+    public int codigo;
+    public double preco;
+    public int quantidade;
+}
+
+class Program
+{
+    static void Main()
+    {
+        // Cria um array capaz de guardar 5 "caixinhas" de Produto
+        Produto[] estoque = new Produto[5];
+
+        Console.WriteLine("=== Cadastro de Produtos ===");
+
+        // 2. Leitura dos 5 produtos
+        for (int i = 0; i < 5; i++)
+        {
+            Console.WriteLine($"\n--- Produto {i + 1} ---");
+            
+            Console.Write("Nome: ");
+            estoque[i].nome = Console.ReadLine();
+            
+            Console.Write("Código: ");
+            estoque[i].codigo = int.Parse(Console.ReadLine());
+            
+            Console.Write("Preço unitário (R$): ");
+            estoque[i].preco = double.Parse(Console.ReadLine());
+            
+            Console.Write("Quantidade em estoque: ");
+            estoque[i].quantidade = int.Parse(Console.ReadLine());
+        }
+
+        // Variáveis para descobrir o produto com maior valor em estoque
+        double maiorValorTotal = 0;
+        string nomeMaiorProduto = "";
+
+        Console.WriteLine("\n=== Relatório do Estoque ===");
+
+        // 3. Exibição e cálculo do valor de cada produto
+        for (int i = 0; i < 5; i++)
+        {
+            // Calcula o valor total deste produto específico
+            double valorTotalProduto = estoque[i].preco * estoque[i].quantidade;
+
+            // Mostra os dados do produto
+            Console.WriteLine($"\n[{estoque[i].codigo}] {estoque[i].nome}");
+            Console.WriteLine($"Preço: R$ {estoque[i].preco:F2} | Qtd: {estoque[i].quantidade}");
+            Console.WriteLine($"Valor total em estoque: R$ {valorTotalProduto:F2}");
+
+            // Lógica para achar o maior valor (parecida com a do Exercício 2)
+            if (i == 0 || valorTotalProduto > maiorValorTotal)
+            {
+                maiorValorTotal = valorTotalProduto;
+                nomeMaiorProduto = estoque[i].nome;
+            }
+        }
+
+        // 4. Mostra o campeão
+        Console.WriteLine("\n=============================");
+        Console.WriteLine($" Produto com maior valor em estoque: {nomeMaiorProduto}");
+        Console.WriteLine($"Valor acumulado: R$ {maiorValorTotal:F2}");
+        Console.WriteLine("=============================");
+    }
+}
+## Exercício 9 
+using System;
+
+// 1. Definição da struct
+struct Aluno
+{
+    public string nome;
+    public int idade;
+    public double nota1;
+    public double nota2;
+    public double nota3;
+}
+
+class Program
+{
+    static void Main()
+    {
+        // Cria uma turma com 5 alunos
+        Aluno[] turma = new Aluno[5];
+
+        // Variáveis para guardar as estatísticas finais
+        int qtdAprovados = 0;
+        int qtdReprovados = 0;
+        double maiorMedia = 0;
+        string alunoMaiorMedia = "";
+
+        Console.WriteLine("=== Cadastro de Alunos ===");
+
+        // 2. Leitura dos dados de cada aluno
+        for (int i = 0; i < 5; i++)
+        {
+            Console.WriteLine($"\n--- Aluno {i + 1} ---");
+            
+            Console.Write("Nome: ");
+            turma[i].nome = Console.ReadLine();
+            
+            Console.Write("Idade: ");
+            turma[i].idade = int.Parse(Console.ReadLine());
+            
+            Console.Write("Nota 1: ");
+            turma[i].nota1 = double.Parse(Console.ReadLine());
+            
+            Console.Write("Nota 2: ");
+            turma[i].nota2 = double.Parse(Console.ReadLine());
+            
+            Console.Write("Nota 3: ");
+            turma[i].nota3 = double.Parse(Console.ReadLine());
+        }
+
+        Console.WriteLine("\n=== Boletim da Turma ===");
+
+        // 3. Processamento: cálculo de médias, status e maior média
+        for (int i = 0; i < 5; i++)
+        {
+            // Calcula a média do aluno atual
+            double media = (turma[i].nota1 + turma[i].nota2 + turma[i].nota3) / 3;
+
+            // Mostra o nome e a média na mesma linha
+            Console.Write($"Aluno(a): {turma[i].nome} | Média: {media:F2} -> ");
+
+            // Classifica como Aprovado ou Reprovado e conta
+            if (media >= 7.0)
+            {
+                Console.WriteLine("APROVADO");
+                qtdAprovados++;
+            }
+            else
+            {
+                Console.WriteLine("REPROVADO");
+                qtdReprovados++;
+            }
+
+            // Lógica para descobrir o aluno com a maior média
+            if (i == 0 || media > maiorMedia)
+            {
+                maiorMedia = media;
+                alunoMaiorMedia = turma[i].nome;
+            }
+        }
+
+        // 4. Resultados finais
+        Console.WriteLine("\n=== Resumo Final ===");
+        Console.WriteLine($"Quantidade de Aprovados: {qtdAprovados}");
+        Console.WriteLine($"Quantidade de Reprovados: {qtdReprovados}");
+        Console.WriteLine($"Aluno com maior média: {alunoMaiorMedia} (Média: {maiorMedia:F2})");
+    }
+}
+##Exercício 10 
+using System;
+
+// 1. Definição da struct
+struct Funcionario
+{
+    public string nome;
+    public int idade;
+    public string cargo;
+    public double salario;
+}
+
+class Program
+{
+    static void Main()
+    {
+        // Vetor para 10 funcionários
+        Funcionario[] quadro = new Funcionario[10];
+
+        double somaSalarios = 0;
+        double maiorSalario = 0;
+        string funcionarioMaiorSalario = "";
+
+        Console.WriteLine("=== 1. CADASTRO DE FUNCIONÁRIOS ===");
+
+        // 1. Cadastrar os funcionários
+        for (int i = 0; i < 10; i++)
+        {
+            Console.WriteLine($"\n--- Funcionário {i + 1} ---");
+            
+            Console.Write("Nome: ");
+            quadro[i].nome = Console.ReadLine();
+            
+            Console.Write("Idade: ");
+            quadro[i].idade = int.Parse(Console.ReadLine());
+            
+            Console.Write("Cargo: ");
+            quadro[i].cargo = Console.ReadLine();
+            
+            Console.Write("Salário (R$): ");
+            quadro[i].salario = double.Parse(Console.ReadLine());
+
+            // Já vamos acumulando a soma para a média futura
+            somaSalarios += quadro[i].salario;
+
+            // Já verificamos quem tem o maior salário durante o cadastro
+            if (i == 0 || quadro[i].salario > maiorSalario)
+            {
+                maiorSalario = quadro[i].salario;
+                funcionarioMaiorSalario = quadro[i].nome;
+            }
+        }
+
+        // 2. Listar todos os funcionários
+        Console.WriteLine("\n=== 2. LISTA DE FUNCIONÁRIOS ===");
+        for (int i = 0; i < 10; i++)
+        {
+            Console.WriteLine($"Nome: {quadro[i].nome} | Cargo: {quadro[i].cargo} | Salário: R$ {quadro[i].salario:F2}");
+        }
+
+        // 3. Mostrar o funcionário com maior salário
+        Console.WriteLine("\n=== 3. MAIOR SALÁRIO ===");
+        Console.WriteLine($" {funcionarioMaiorSalario} ganha o maior salário: R$ {maiorSalario:F2}");
+
+        // 4. Calcular a média salarial
+        double mediaSalarial = somaSalarios / 10;
+        Console.WriteLine("\n=== 4. MÉDIA SALARIAL DA EMPRESA ===");
+        Console.WriteLine($"Média: R$ {mediaSalarial:F2}");
+
+        // 5. Mostrar os funcionários com salário acima da média
+        Console.WriteLine("\n=== 5. ACIMA DA MÉDIA ===");
+        for (int i = 0; i < 10; i++)
+        {
+            // Filtra e imprime apenas quem ganha mais que a média
+            if (quadro[i].salario > mediaSalarial)
+            {
+                Console.WriteLine($"- {quadro[i].nome} (R$ {quadro[i].salario:F2})");
+            }
+        }
+    }
+}

@@ -125,3 +125,75 @@ Justificativa: Existem 2 ruas saindo do cruzamento A (uma indo para B e outra in
 Um grafo não dirigido representa relações simétricas ou bidirecionais. Se usássemos uma aresta não dirigida para representar a rua, estaríamos dizendo matematicamente que é possível trafegar tanto de A para B quanto de B para A.
 Isso não representa a realidade de uma rua de mão única, pois permitiria que o modelo sugerisse trajetos na contramão. 
 Em sistemas de trânsito onde existem restrições de sentido, o grafo dirigido (dígrafo) é obrigatório, pois a seta garante que o fluxo (ou o caminhamento no grafo) só aconteça na direção permitida pelas leis de trânsito.
+
+5.1- 
+Ordem e Tamanho
+Grafo G: Ordem é 4 (possui os vértices 1, 2, 3, 4) e o Tamanho é 4 (possui 4 arestas).
+Grafo H: Ordem é 4 (possui os vértices a, b, c, d) e o Tamanho é 4 (possui 4 arestas).
+
+5.2-
+Grau de cada vértice e sequência de graus
+Grafo G: O conjunto de arestas é {(1,2), (2,3), (3,4), (4,1)}.   
+Grau do vértice 1: 2 (ligado a 2 e 4)
+Grau do vértice 2: 2 (ligado a 1 e 3)
+Grau do vértice 3: 2 (ligado a 2 e 4)
+Grau do vértice 4: 2 (ligado a 1 e 3)
+Sequência de graus de G: (2, 2, 2, 2)
+
+Grafo H: O conjunto de arestas é {(a,c), (c,b), (b,d), (d,a)}.   
+Grau do vértice a: 2 (ligado a c e d)
+Grau do vértice b: 2 (ligado a c e d)
+Grau do vértice c: 2 (ligado a a e b)
+Grau do vértice d: 2 (ligado a b e a)
+Sequência de graus de H: (2, 2, 2, 2)
+
+5.3 e 5.4-
+Correspondência e preservação das adjacências
+Ao analisar a estrutura, ambos são grafos em formato de ciclo com 4 vértices.
+Podemos mapear caminhando pelas arestas: em G, partimos de 1 -> 2 -> 3 -> 4 -> 1; em H, partimos de a -> c -> b -> d -> a.
+
+Vértice em G      |      Correspondente em H
+1                 |              a
+2                 |              c
+3                 |              b
+4                 |              d
+
+5.5-
+Conclusão e Justificativa
+Sim, os grafos são isomorfos.
+A justificativa é que eles possuem o mesmo número de vértices (ordem 4), o mesmo número de arestas (tamanho 4), a mesma sequência de graus (2, 2, 2, 2) e, mais importante, é possível estabelecer uma 
+função bijetora (o mapeamento da tabela acima) que preserva perfeitamente todas as adjacências originais de ambos os grafos. Ambos representam um ciclo idêntico
+
+6.1- Grafo no Graphviz Online
+graph SequenciaGraus {
+    node [shape=circle, style=filled, fillcolor=lightblue, fontname="Arial"];
+    
+    A -- B;
+    A -- C;
+    A -- D;
+    A -- E;
+    A -- F;
+    A -- G;
+    B -- C;
+    B -- D;
+    B -- E;
+    C -- D;
+    C -- H;
+    E -- F;
+}
+
+
+6.2-
+Tabela de Graus Obtidos
+De acordo com a construção acima, preenchemos a tabela:
+Vértice           |     Grau obtido
+A                 |     6 (conectado a B, C, D, E, F, G)
+B                 |     4 (conectado a A, C, D, E)
+C                 |     4 (conectado a A, B, D, H)
+D                 |     3 (conectado a A, B, C)
+E                 |     3 (conectado a A, B, F)
+F                 |     2 (conectado a A, E)
+G                 |     1 (conectado a A)
+H                 |     1 (conectado a C)
+
+6.3-

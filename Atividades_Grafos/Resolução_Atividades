@@ -1,0 +1,127 @@
+Atividade 1 - Desenhando um grafo
+
+1.1- Grafo no Graphviz Online
+graph G {
+    1 -- 2;
+    1 -- 4;
+    1 -- 5;
+    2 -- 3;
+    3 -- 4;
+    4 -- 4;
+}
+
+1.2- Número de vértices
+5 vértices.
+
+1.3- Número de arestas
+6 arestas.
+
+1.4- Ordem |V|
+A ordem é o número de vértices: |V| = 5.
+
+1.5- Tamanho |E|
+O tamanho é o número de arestas: |E| = 6.
+
+1.6- Identifique se existe laço
+Sim. Existe um laço no vértice 4, representado pela aresta (4,4).
+
+1.7- Grau de cada vértice
+Lembrando que o laço conta duas vezes para o grau do próprio vértice:
+
+Grau de 1: 3 (arestas ligando ao 2, 4 e 5)
+
+Grau de 2: 2 (arestas ligando ao 1 e 3)
+
+Grau de 3: 2 (arestas ligando ao 2 e 4)
+
+Grau de 4: 4 (arestas ligando ao 1, ao 3, e o laço conta como 2)
+
+Grau de 5: 1 (aresta ligando ao 1)
+
+2.1 e 2.2
+
+Vértice |    Vérticesadjacentes     | Arestas incidentes
+1	      |      2, 4, 5	            |(1,2), (1,4), (1,5)
+2	      |      1, 3	                |(1,2), (2,3)
+3	      |      2, 4	                |(2,3), (3,4)
+4	      |      1, 3, 4	            |(1,4), (3,4), (4,4)
+5	      |      1	                  |(1,5)
+
+2.3-
+Vértices 1 e 4.
+Eles são considerados vizinhos (adjacentes) porque existe uma ligação direta entre eles no grafo.
+Matematicamente, a aresta (1,4) pertence ao conjunto de arestas E, conectando os dois nós diretamente.
+
+2.4-
+Vértices 2 e 5.
+Eles não são vizinhos porque não existe uma ligação direta entre eles. 
+O conjunto de arestas E não contém a aresta (2,5) (ou (5,2)), o que significa que para ir do vértice 2 ao 5 é necessário passar por outro vértice 
+(neste caso, o vértice 1).
+
+3.1- Conjunto de Vértices
+O conjunto de vértices é formado pelas quatro pessoas:
+V = {João, Carolina, Maria, Marco}
+
+3.2-Conjunto de Arestas
+Vamos assumir as seguintes amizades:
+João é amigo de Carolina e Maria.
+Carolina é amiga de João e Maria.
+Maria é amiga de todos.
+Marco é amigo apenas de Maria.
+ortanto, o conjunto de arestas será:
+E = {(João, Carolina), (João, Maria), (Carolina, Maria), (Maria, Marco)}
+
+3.3- Grafo no Graphviz Online
+graph Amizades {
+    node [shape=ellipse, style=filled, fillcolor=lightgreen, fontname="Arial"];
+    "João" -- "Carolina";
+    "João" -- "Maria";
+    "Carolina" -- "Maria";
+    "Maria" -- "Marco";
+}
+
+3.4-
+O grafo deve ser não dirigido.
+
+3.5-
+Em uma rede de amizades tradicional, a relação é simétrica e recíproca.
+Se o João é amigo da Carolina, consequentemente a Carolina é amiga do João. 
+Por isso usamos arestas sem setas
+
+3.6-
+Nesta modelagem, quem possui o maior grau é a Maria.
+Ela tem grau 3, pois possui três arestas incidentes em seu vértice. 
+João e Carolina têm grau 2, e Marco tem grau 1.
+
+4.1, 4.2 e 4.3- Grafo no Graphviz Online
+digraph Transito {
+    node [shape=box, style=filled, fillcolor=lightyellow, fontname="Arial"];
+    
+    A -> B;
+    A -> C;
+    B -> C;
+    C -> D;
+    D -> A;
+}
+
+4.4-
+Neste modelo, temos:
+
+Vértices (Cruzamentos):
+V = {A, B, C, D}
+
+Arestas (Ruas de mão única): Em um dígrafo, a ordem importa, indicando a origem e o destino (Origem, Destino).
+E = {(A,B), (A,C), (B,C), (C,D), (D,A)}
+
+4.5-
+Grau de Entrada e Grau de Saída
+Vamos escolher o vértice A para análise:
+Grau de entrada (indegree): 1
+Justificativa: Existe apenas 1 rua chegando ao cruzamento A (a rua que vem de D).
+Grau de saída (outdegree): 2
+Justificativa: Existem 2 ruas saindo do cruzamento A (uma indo para B e outra indo para C).
+
+4.6- 
+Um grafo não dirigido representa relações simétricas ou bidirecionais. Se usássemos uma aresta não dirigida para representar a rua, estaríamos dizendo matematicamente que é possível trafegar tanto de A para B quanto de B para A.
+Isso não representa a realidade de uma rua de mão única, pois permitiria que o modelo sugerisse trajetos na contramão. 
+Em sistemas de trânsito onde existem restrições de sentido, o grafo dirigido (dígrafo) é obrigatório, pois a seta garante que o fluxo (ou o caminhamento no grafo) só aconteça na direção permitida pelas leis de trânsito.

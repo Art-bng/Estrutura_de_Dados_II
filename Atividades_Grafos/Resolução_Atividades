@@ -197,3 +197,11 @@ G                 |     1 (conectado a A)
 H                 |     1 (conectado a C)
 
 6.3-
+Conjunto de arestas E:
+E = {(A,B), (A,C), (A,D), (A,E), (A,F), (A,G), (B,C), (B,D), (B,E), (C,D), (C,H), (E,F)}
+Sequência obtida:
+(1, 1, 2, 3, 3, 4, 4, 6) (ordenada de forma não decrescente, conforme solicitado).
+Soma dos graus:1 + 1 + 2 + 3 + 3 + 4 + 4 + 6 = 24
+Número de arestas:Contando os pares no conjunto E, temos 12 arestas.
+A soma dos graus é 24. Duas vezes o número de arestas é 2 X 12 = 24. 
+Isso comprova o Teorema do Aperto de Mãos (ou Lema dos Apertos de Mão).

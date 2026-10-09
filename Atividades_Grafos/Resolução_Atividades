@@ -164,7 +164,7 @@ Sim, os grafos são isomorfos.
 A justificativa é que eles possuem o mesmo número de vértices (ordem 4), o mesmo número de arestas (tamanho 4), a mesma sequência de graus (2, 2, 2, 2) e, mais importante, é possível estabelecer uma 
 função bijetora (o mapeamento da tabela acima) que preserva perfeitamente todas as adjacências originais de ambos os grafos. Ambos representam um ciclo idêntico
 
-6.1- Grafo no Graphviz Online
+7.1- Grafo no Graphviz Online
 graph SequenciaGraus {
     node [shape=circle, style=filled, fillcolor=lightblue, fontname="Arial"];
     
@@ -183,7 +183,7 @@ graph SequenciaGraus {
 }
 
 
-6.2-
+7.2-
 Tabela de Graus Obtidos
 De acordo com a construção acima, preenchemos a tabela:
 Vértice           |     Grau obtido
@@ -196,7 +196,7 @@ F                 |     2 (conectado a A, E)
 G                 |     1 (conectado a A)
 H                 |     1 (conectado a C)
 
-6.3-
+7.3-
 Conjunto de arestas E:
 E = {(A,B), (A,C), (A,D), (A,E), (A,F), (A,G), (B,C), (B,D), (B,E), (C,D), (C,H), (E,F)}
 Sequência obtida:

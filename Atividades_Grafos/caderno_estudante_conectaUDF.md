@@ -41,8 +41,21 @@ As amizades são:
 4. Não desenhe duas linhas para a mesma amizade.
 5. Confira se todas as oito amizades aparecem.
 
-<img width="528" height="359" alt="image" src="https://github.com/user-attachments/assets/0b521afc-4c50-4787-846b-51c6bfddc6f0" />
-**Espaço para o seu desenho:** faça o grafo no caderno ou em uma ferramenta de desenho.
+<img width="952" height="889" alt="Image" src="https://github.com/user-attachments/assets/b8afa3ba-01d7-4b50-bc75-a626324cc436" />
+Grafo criado pela plataforma Graphviz Online segue codigo para recriá-lo:
+
+digraph Grafo1 {
+    node [shape=circle, style=filled, fillcolor=lightblue, fontname="Arial"];
+    
+    ANA -> Bruno;
+    ANA -> Carlos;
+    Bruno -> Carlos;
+    Bruno -> Diego;
+    Carlos -> Elisa;
+    Diego -> Elisa;
+    Elisa -> Felipe;
+    Diego -> Felipe;
+}
 
 ## 5. Passo a passo: calcule o grau
 Conte quantas linhas chegam a cada círculo. Registre o resultado.
@@ -117,7 +130,7 @@ print(f"Total de arestas direcionadas (E): {total_arestas}")
 print(f"Densidade: {densidade:.2%}")
 
 
-<img width="528" height="359" alt="image" src="https://github.com/user-attachments/assets/0b521afc-4c50-4787-846b-51c6bfddc6f0" />
+<img width="952" height="889" alt="Image" src="https://github.com/user-attachments/assets/b8afa3ba-01d7-4b50-bc75-a626324cc436" />
 
 
 ### Entenda o código
@@ -141,9 +154,29 @@ Ana → Carlos → Elisa → Felipe
 ## 10. Desafio em grupo
 Amplie a rede social:
 1. Adicione pelo menos quatro usuários fictícios.
-2. Crie no mínimo cinco novas amizades.  <img width="2859" height="1176" alt="image" src="https://github.com/user-attachments/assets/6024af40-d351-49f5-923b-b35c87ee30ea" />
+2. Crie no mínimo cinco novas amizades.
+3. <img width="920" height="893" alt="Image" src="https://github.com/user-attachments/assets/bb063c1b-ba78-4792-9404-b0df2d28768d" />
+Grafo criado pela plataforma Graphviz Online segue codigo para recriá-lo:
 
-3. Atualize a lista de adjacência no Python. rede_ampliada = {
+graph Grafo2 {
+    node [shape=circle, style=filled, fillcolor=lightblue, fontname="Arial"];
+    
+    Ana -- Bruno;
+    Ana -- Carla;
+    Bruno -- Carla;
+    Bruno -- Gabriel;
+    Bruno -- Diego;
+    Carla -- Gabriel;
+    Carla -- Elisa;
+    Gabriel -- Júlia;
+    Diego -- Elisa;
+    Diego -- Felipe;
+    Elisa -- Felipe;
+    Elisa -- Igor;
+    Felipe -- Helena;
+    Helena -- Igor;
+}
+5. Atualize a lista de adjacência no Python. rede_ampliada = {
   "Ana": ["Bruno", "Carlos"],
   "Bruno": ["Ana", "Carlos", "Diego", "Gabriel"],
   "Carla": ["Ana", "Bruno", "Elisa", "Gabriel"],
